@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altara Capital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-dark: #1a1a1a;
+            --color-gray: #4a4a4a;
+            --color-light-gray: #b0b0b0;
+            --color-bg: #f5f5f3;
+            --color-white: #ffffff;
+            --color-accent: #2c2c2c;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--color-dark);
+            background-color: var(--color-bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: var(--color-dark);
+            padding: 0 48px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.3s ease;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--color-white);
+        }
+
+        .logo-icon { width: 40px; height: 40px; }
+        .logo-text { font-size: 18px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--color-white); }
+        .logo-subtitle { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--color-light-gray); margin-top: -2px; }
+
+        nav { display: flex; align-items: center; gap: 36px; }
+        nav a { color: var(--color-light-gray); text-decoration: none; font-size: 14px; font-weight: 400; letter-spacing: 0.5px; transition: color 0.3s ease; }
+        nav a:hover { color: var(--color-white); }
+
+        .btn-contact { background: var(--color-white); color: var(--color-dark); padding: 10px 28px; font-size: 14px; font-weight: 500; border: none; cursor: pointer; text-decoration: none; letter-spacing: 0.5px; transition: all 0.3s ease; }
+        .btn-contact:hover { background: var(--color-light-gray); color: var(--color-dark); }
+
+        .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 72px; }
+        .hero-content { background: var(--color-bg); display: flex; flex-direction: column; justify-content: center; padding: 80px 64px; }
+        .hero h1 { font-size: clamp(36px, 4.5vw, 64px); font-weight: 300; line-height: 1.15; color: var(--color-dark); margin-bottom: 24px; }
+        .hero p { font-size: 18px; font-weight: 400; color: var(--color-gray); max-width: 440px; line-height: 1.7; }
+        .hero-image { background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%); position: relative; overflow: hidden; min-height: 500px; }
+        .hero-image-overlay { width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80') center/cover no-repeat; }
+
+        .section { padding: 120px 64px; }
+        .section-dark { background: var(--color-dark); color: var(--color-white); }
+        .section-light { background: var(--color-white); }
+        .section-header { margin-bottom: 64px; }
+        .section-label { font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--color-light-gray); margin-bottom: 20px; }
+        .section-title { font-size: clamp(28px, 3.5vw, 48px); font-weight: 300; line-height: 1.2; max-width: 700px; }
+
+        .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; max-width: 900px; margin-top: 64px; }
+        .stat-number { font-size: 48px; font-weight: 300; line-height: 1; margin-bottom: 12px; }
+        .section-dark .stat-number { color: var(--color-white); }
+        .stat-label { font-size: 14px; color: var(--color-light-gray); letter-spacing: 0.5px; }
+
+        .approach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; margin-top: 64px; }
+        .approach-card { padding: 40px; background: var(--color-bg); border: 1px solid #e5e5e3; }
+        .approach-number { font-size: 14px; font-weight: 600; color: var(--color-light-gray); margin-bottom: 20px; }
+        .approach-card h3 { font-size: 22px; font-weight: 500; margin-bottom: 16px; color: var(--color-dark); }
+        .approach-card p { font-size: 15px; color: var(--color-gray); line-height: 1.7; }
+
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .two-col-text h2 { font-size: clamp(28px, 3vw, 42px); font-weight: 300; line-height: 1.25; margin-bottom: 24px; }
+        .two-col-text p { font-size: 16px; color: var(--color-gray); line-height: 1.8; margin-bottom: 16px; }
+        .two-col-image { height: 500px; overflow: hidden; }
+        .two-col-image-bg { width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=800&q=80') center/cover no-repeat; }
+
+        .contact-section { text-align: center; padding: 120px 64px; background: var(--color-dark); color: var(--color-white); }
+        .contact-section h2 { font-size: clamp(28px, 3.5vw, 48px); font-weight: 300; margin-bottom: 20px; }
+        .contact-section p { font-size: 16px; color: var(--color-light-gray); margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+        .contact-form { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 14px 20px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); color: var(--color-white); font-family: var(--font-main); font-size: 14px; outline: none; transition: border-color 0.3s ease; }
+        .contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--color-light-gray); }
+        .contact-form input:focus, .contact-form textarea:focus { border-color: rgba(255, 255, 255, 0.4); }
+        .contact-form textarea { min-height: 120px; resize: vertical; }
+        .btn-submit { background: var(--color-white); color: var(--color-dark); padding: 14px 40px; font-size: 14px; font-weight: 500; border: none; cursor: pointer; letter-spacing: 0.5px; transition: all 0.3s ease; margin: 0 auto; }
+        .btn-submit:hover { background: var(--color-light-gray); }
+
+        footer { background: var(--color-dark); border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 40px 64px; display: flex; justify-content: space-between; align-items: center; }
+        .footer-text { font-size: 13px; color: var(--color-light-gray); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { font-size: 13px; color: var(--color-light-gray); text-decoration: none; transition: color 0.3s ease; }
+        .footer-links a:hover { color: var(--color-white); }
+
+        .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+        .mobile-menu-btn span { display: block; width: 24px; height: 2px; background: var(--color-white); margin: 5px 0; transition: 0.3s; }
+
+        @media (max-width: 968px) {
+            header { padding: 0 24px; }
+            nav { display: none; }
+            .mobile-menu-btn { display: block; }
+            .hero { grid-template-columns: 1fr; }
+            .hero-content { padding: 60px 24px; min-height: 50vh; }
+            .hero-image { min-height: 40vh; }
+            .section { padding: 80px 24px; }
+            .stats { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+            .stat-number { font-size: 32px; }
+            .approach-grid { grid-template-columns: 1fr; gap: 24px; }
+            .two-col { grid-template-columns: 1fr; gap: 40px; }
+            .two-col-image { height: 300px; }
+            .contact-section { padding: 80px 24px; }
+            footer { padding: 30px 24px; flex-direction: column; gap: 16px; text-align: center; }
+        }
+
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">
+            <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 4L34 32H6L20 4Z" stroke="white" stroke-width="1.5" fill="none"/>
+                <path d="M20 14L28 32H12L20 14Z" stroke="white" stroke-width="1" fill="none"/>
+            </svg>
+            <div><div class="logo-text">Altara</div><div class="logo-subtitle">Capital</div></div>
+        </a>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#approach">Approach</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact" class="btn-contact">Contact Us</a>
+        </nav>
+        <button class="mobile-menu-btn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Institutional<br>Industrial<br>Investing.</h1>
+            <p>Strategically acquired industrial real estate with stable cash flows and long-term value creation.</p>
+        </div>
+        <div class="hero-image"><div class="hero-image-overlay"></div></div>
+    </section>
+
+    <section class="section section-dark" id="about">
+        <div class="section-header fade-in">
+            <div class="section-label">Who We Are</div>
+            <h2 class="section-title">A disciplined approach to industrial real estate investment.</h2>
+        </div>
+        <div class="stats fade-in">
+            <div class="stat"><div class="stat-number">$2.5B+</div><div class="stat-label">Assets Under Management</div></div>
+            <div class="stat"><div class="stat-number">45+</div><div class="stat-label">Properties Acquired</div></div>
+            <div class="stat"><div class="stat-number">12M+</div><div class="stat-label">Square Feet Managed</div></div>
+        </div>
+    </section>
+
+    <section class="section section-light" id="approach">
+        <div class="section-header fade-in">
+            <div class="section-label">Our Approach</div>
+            <h2 class="section-title">Built on fundamentals.<br>Driven by conviction.</h2>
+        </div>
+        <div class="approach-grid fade-in">
+            <div class="approach-card"><div class="approach-number">01</div><h3>Strategic Acquisition</h3><p>We identify and acquire high-quality industrial assets in prime locations with strong underlying fundamentals and growth potential.</p></div>
+            <div class="approach-card"><div class="approach-number">02</div><h3>Active Management</h3><p>Our hands-on approach to property management maximizes operational efficiency and enhances tenant relationships for long-term stability.</p></div>
+            <div class="approach-card"><div class="approach-number">03</div><h3>Value Creation</h3><p>Through disciplined capital deployment and strategic improvements, we unlock embedded value and generate superior risk-adjusted returns.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="portfolio">
+        <div class="two-col">
+            <div class="two-col-text fade-in">
+                <div class="section-label">Portfolio</div>
+                <h2>Industrial assets positioned for long-term growth.</h2>
+                <p>Our portfolio spans logistics, warehousing, and light manufacturing facilities across key North American markets.</p>
+                <p>Each investment is carefully selected based on location quality, tenant creditworthiness, and long-term demand drivers in the industrial sector.</p>
+            </div>
+            <div class="two-col-image fade-in"><div class="two-col-image-bg"></div></div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="fade-in">
+            <div class="section-label">Get In Touch</div>
+            <h2>Let's discuss your<br>investment goals.</h2>
+            <p>Reach out to learn more about our investment strategy and current opportunities.</p>
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="text" placeholder="Company">
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-text">&copy; 2026 Altara Capital. All rights reserved.</div>
+        <div class="footer-links">
+            <a href="#about">About</a><a href="#approach">Approach</a><a href="#portfolio">Portfolio</a><a href="#contact">Contact</a>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        function handleSubmit(e) { e.preventDefault(); alert('Thank you for your message. We will be in touch shortly.'); e.target.reset(); }
+        function toggleMenu() {
+            const nav = document.querySelector('nav');
+            if (nav.style.display === 'flex') { nav.style.display = 'none'; }
+            else { nav.style.display = 'flex'; nav.style.position = 'absolute'; nav.style.top = '72px'; nav.style.left = '0'; nav.style.right = '0'; nav.style.background = '#1a1a1a'; nav.style.flexDirection = 'column'; nav.style.padding = '24px'; nav.style.gap = '20px'; }
+        }
+    </script>
+</body>
+</html>
