@@ -191,11 +191,14 @@
             <div class="section-label">Get In Touch</div>
             <h2>Let's discuss your<br>investment goals.</h2>
             <p>Reach out to learn more about our investment strategy and current opportunities.</p>
-            <form class="contact-form" onsubmit="handleSubmit(event)">
-                <input type="text" placeholder="Full Name" required>
-                <input type="email" placeholder="Email Address" required>
-                <input type="text" placeholder="Company">
-                <textarea placeholder="Your Message" required></textarea>
+            <form class="contact-form" action="https://formsubmit.co/Ethomasson@altaracp.com" method="POST">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <input type="text" name="company" placeholder="Company">
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <input type="hidden" name="_next" value="https://altaracp.com/#contact">
+                <input type="hidden" name="_subject" value="New Contact Form Submission - Altara Capital Partners">
+                <input type="hidden" name="_captcha" value="true">
                 <button type="submit" class="btn-submit">Send Message</button>
             </form>
         </div>
@@ -213,7 +216,7 @@
             entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
         }, { threshold: 0.1 });
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-        function handleSubmit(e) { e.preventDefault(); alert('Thank you for your message. We will be in touch shortly.'); e.target.reset(); }
+        
         function toggleMenu() {
             const nav = document.querySelector('nav');
             if (nav.style.display === 'flex') { nav.style.display = 'none'; }
