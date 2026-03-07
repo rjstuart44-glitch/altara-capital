@@ -6,7 +6,7 @@
     <title>Altara Capital Partners</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after {
             margin: 0;
@@ -15,13 +15,19 @@
         }
 
         :root {
-            --color-dark: #1a1a1a;
-            --color-gray: #4a4a4a;
-            --color-light-gray: #b0b0b0;
-            --color-bg: #f5f5f3;
+            --color-dark: #1c1f22;
+            --color-dark-secondary: #2a2d31;
+            --color-charcoal: #3a3d42;
+            --color-gray: #8a8d92;
+            --color-light-gray: #b0b3b8;
+            --color-champagne: #c9b896;
+            --color-champagne-light: #d4c9a8;
+            --color-champagne-dark: #a89568;
+            --color-cream: #f0ebe0;
+            --color-bg: #f5f2eb;
             --color-white: #ffffff;
-            --color-accent: #2c2c2c;
-            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Cormorant Garamond', 'Georgia', serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         html {
@@ -29,13 +35,14 @@
         }
 
         body {
-            font-family: var(--font-main);
+            font-family: var(--font-sans);
             color: var(--color-dark);
             background-color: var(--color-bg);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Header */
         header {
             position: fixed;
             top: 0;
@@ -44,80 +51,295 @@
             z-index: 100;
             background: var(--color-dark);
             padding: 0 48px;
-            height: 72px;
+            height: 76px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            transition: background 0.3s ease;
+            border-bottom: 1px solid rgba(201, 184, 150, 0.15);
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             text-decoration: none;
-            color: var(--color-white);
+            color: var(--color-champagne);
         }
 
-        .logo-icon { width: 40px; height: 40px; }
-        .logo-text { font-size: 18px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--color-white); }
-        .logo-subtitle { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--color-light-gray); margin-top: -2px; }
+        .logo-icon { width: 42px; height: 42px; }
+
+        .logo-text-group { display: flex; flex-direction: column; }
+        .logo-text {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            font-weight: 500;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--color-champagne-light);
+        }
+        .logo-subtitle {
+            font-family: var(--font-serif);
+            font-size: 10px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--color-champagne-dark);
+            margin-top: -1px;
+        }
 
         nav { display: flex; align-items: center; gap: 36px; }
-        nav a { color: var(--color-light-gray); text-decoration: none; font-size: 14px; font-weight: 400; letter-spacing: 0.5px; transition: color 0.3s ease; }
-        nav a:hover { color: var(--color-white); }
+        nav a {
+            color: var(--color-light-gray);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+        nav a:hover { color: var(--color-champagne); }
 
-        .btn-contact { background: var(--color-white); color: var(--color-dark); padding: 10px 28px; font-size: 14px; font-weight: 500; border: none; cursor: pointer; text-decoration: none; letter-spacing: 0.5px; transition: all 0.3s ease; }
-        .btn-contact:hover { background: var(--color-light-gray); color: var(--color-dark); }
+        .btn-contact {
+            background: transparent;
+            color: var(--color-champagne) !important;
+            padding: 10px 28px;
+            font-size: 13px;
+            font-weight: 400;
+            border: 1px solid var(--color-champagne-dark);
+            cursor: pointer;
+            text-decoration: none;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .btn-contact:hover {
+            background: var(--color-champagne);
+            color: var(--color-dark) !important;
+        }
 
-        .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 72px; }
-        .hero-content { background: var(--color-bg); display: flex; flex-direction: column; justify-content: center; padding: 80px 64px; }
-        .hero h1 { font-size: clamp(36px, 4.5vw, 64px); font-weight: 300; line-height: 1.15; color: var(--color-dark); margin-bottom: 24px; }
-        .hero p { font-size: 18px; font-weight: 400; color: var(--color-gray); max-width: 440px; line-height: 1.7; }
+        /* Hero */
+        .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 76px; }
+        .hero-content {
+            background: var(--color-bg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 64px;
+            position: relative;
+        }
+        .hero-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(201, 184, 150, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(40px, 4.5vw, 68px);
+            font-weight: 300;
+            line-height: 1.12;
+            color: var(--color-dark);
+            margin-bottom: 28px;
+            position: relative;
+        }
+        .hero p {
+            font-size: 17px;
+            font-weight: 300;
+            color: var(--color-charcoal);
+            max-width: 440px;
+            line-height: 1.8;
+            position: relative;
+        }
         .hero-image { background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%); position: relative; overflow: hidden; min-height: 500px; }
         .hero-image-overlay { width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80') center/cover no-repeat; }
 
+        /* Sections */
         .section { padding: 120px 64px; }
-        .section-dark { background: var(--color-dark); color: var(--color-white); }
-        .section-light { background: var(--color-white); }
+        .section-dark { background: var(--color-dark); color: var(--color-cream); }
+        .section-light { background: var(--color-cream); }
         .section-header { margin-bottom: 64px; }
-        .section-label { font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--color-light-gray); margin-bottom: 20px; }
-        .section-title { font-size: clamp(28px, 3.5vw, 48px); font-weight: 300; line-height: 1.2; max-width: 700px; }
-.section-dark .stat-number { color: var(--color-white); }
-        .stat-label { font-size: 14px; color: var(--color-light-gray); letter-spacing: 0.5px; }
+        .section-label {
+            font-family: var(--font-sans);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--color-champagne);
+            margin-bottom: 24px;
+        }
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: clamp(30px, 3.5vw, 50px);
+            font-weight: 300;
+            line-height: 1.2;
+            max-width: 700px;
+        }
+        .section-dark .section-title { color: var(--color-cream); }
 
-        .approach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; margin-top: 64px; }
-        .approach-card { padding: 40px; background: var(--color-bg); border: 1px solid #e5e5e3; }
-        .approach-number { font-size: 14px; font-weight: 600; color: var(--color-light-gray); margin-bottom: 20px; }
-        .approach-card h3 { font-size: 22px; font-weight: 500; margin-bottom: 16px; color: var(--color-dark); }
-        .approach-card p { font-size: 15px; color: var(--color-gray); line-height: 1.7; }
+        /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            margin-top: 48px;
+        }
+        .about-text p {
+            font-size: 16px;
+            color: var(--color-light-gray);
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+        .about-highlight {
+            border-left: 2px solid var(--color-champagne-dark);
+            padding-left: 24px;
+        }
+        .about-highlight p {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            font-weight: 300;
+            color: var(--color-champagne-light);
+            line-height: 1.6;
+        }
 
+        /* Approach */
+        .approach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 64px; }
+        .approach-card {
+            padding: 44px 36px;
+            background: var(--color-white);
+            border: 1px solid rgba(201, 184, 150, 0.2);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .approach-card:hover {
+            border-color: var(--color-champagne);
+            box-shadow: 0 8px 32px rgba(201, 184, 150, 0.08);
+        }
+        .approach-number {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            font-weight: 300;
+            color: var(--color-champagne);
+            margin-bottom: 20px;
+        }
+        .approach-card h3 {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: var(--color-dark);
+        }
+        .approach-card p { font-size: 15px; color: var(--color-charcoal); line-height: 1.8; font-weight: 300; }
+
+        /* Two Column */
         .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-        .two-col-text h2 { font-size: clamp(28px, 3vw, 42px); font-weight: 300; line-height: 1.25; margin-bottom: 24px; }
-        .two-col-text p { font-size: 16px; color: var(--color-gray); line-height: 1.8; margin-bottom: 16px; }
+        .two-col-text h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(28px, 3vw, 42px);
+            font-weight: 300;
+            line-height: 1.25;
+            margin-bottom: 24px;
+        }
+        .two-col-text p { font-size: 16px; color: var(--color-charcoal); line-height: 1.8; margin-bottom: 16px; font-weight: 300; }
         .two-col-image { height: 500px; overflow: hidden; }
         .two-col-image-bg { width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=800&q=80') center/cover no-repeat; }
 
-        .contact-section { text-align: center; padding: 120px 64px; background: var(--color-dark); color: var(--color-white); }
-        .contact-section h2 { font-size: clamp(28px, 3.5vw, 48px); font-weight: 300; margin-bottom: 20px; }
-        .contact-section p { font-size: 16px; color: var(--color-light-gray); margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
+        /* Contact */
+        .contact-section {
+            text-align: center;
+            padding: 120px 64px;
+            background: var(--color-dark);
+            color: var(--color-cream);
+            position: relative;
+        }
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 50% 30%, rgba(201, 184, 150, 0.04) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .contact-section h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(30px, 3.5vw, 50px);
+            font-weight: 300;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .contact-section p {
+            font-size: 16px;
+            color: var(--color-light-gray);
+            margin-bottom: 48px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+            position: relative;
+        }
+        .contact-section .section-label { position: relative; }
 
-        .contact-form { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
-        .contact-form input, .contact-form textarea { width: 100%; padding: 14px 20px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); color: var(--color-white); font-family: var(--font-main); font-size: 14px; outline: none; transition: border-color 0.3s ease; }
-        .contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--color-light-gray); }
-        .contact-form input:focus, .contact-form textarea:focus { border-color: rgba(255, 255, 255, 0.4); }
+        .contact-form { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; position: relative; }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(201, 184, 150, 0.2);
+            color: var(--color-cream);
+            font-family: var(--font-sans);
+            font-size: 14px;
+            font-weight: 300;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        .contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--color-gray); }
+        .contact-form input:focus, .contact-form textarea:focus { border-color: var(--color-champagne); }
         .contact-form textarea { min-height: 120px; resize: vertical; }
-        .btn-submit { background: var(--color-white); color: var(--color-dark); padding: 14px 40px; font-size: 14px; font-weight: 500; border: none; cursor: pointer; letter-spacing: 0.5px; transition: all 0.3s ease; margin: 0 auto; }
-        .btn-submit:hover { background: var(--color-light-gray); }
+        .btn-submit {
+            background: transparent;
+            color: var(--color-champagne);
+            padding: 16px 48px;
+            font-size: 13px;
+            font-weight: 400;
+            border: 1px solid var(--color-champagne-dark);
+            cursor: pointer;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            margin: 8px auto 0;
+        }
+        .btn-submit:hover {
+            background: var(--color-champagne);
+            color: var(--color-dark);
+        }
 
-        footer { background: var(--color-dark); border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 40px 64px; display: flex; justify-content: space-between; align-items: center; }
-        .footer-text { font-size: 13px; color: var(--color-light-gray); }
+        /* Divider */
+        .section-divider {
+            width: 60px;
+            height: 1px;
+            background: var(--color-champagne-dark);
+            margin: 0 auto 40px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-dark);
+            border-top: 1px solid rgba(201, 184, 150, 0.1);
+            padding: 40px 64px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-text { font-size: 13px; color: var(--color-gray); }
         .footer-links { display: flex; gap: 24px; }
-        .footer-links a { font-size: 13px; color: var(--color-light-gray); text-decoration: none; transition: color 0.3s ease; }
-        .footer-links a:hover { color: var(--color-white); }
+        .footer-links a { font-size: 13px; color: var(--color-gray); text-decoration: none; transition: color 0.3s ease; letter-spacing: 0.5px; }
+        .footer-links a:hover { color: var(--color-champagne); }
 
         .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-        .mobile-menu-btn span { display: block; width: 24px; height: 2px; background: var(--color-white); margin: 5px 0; transition: 0.3s; }
+        .mobile-menu-btn span { display: block; width: 24px; height: 2px; background: var(--color-champagne-light); margin: 5px 0; transition: 0.3s; }
 
         @media (max-width: 968px) {
             header { padding: 0 24px; }
@@ -127,11 +349,10 @@
             .hero-content { padding: 60px 24px; min-height: 50vh; }
             .hero-image { min-height: 40vh; }
             .section { padding: 80px 24px; }
-            .stats { grid-template-columns: repeat(3, 1fr); gap: 24px; }
-            .stat-number { font-size: 32px; }
             .approach-grid { grid-template-columns: 1fr; gap: 24px; }
             .two-col { grid-template-columns: 1fr; gap: 40px; }
             .two-col-image { height: 300px; }
+            .about-content { grid-template-columns: 1fr; gap: 40px; }
             .contact-section { padding: 80px 24px; }
             footer { padding: 30px 24px; flex-direction: column; gap: 16px; text-align: center; }
         }
@@ -143,11 +364,22 @@
 <body>
     <header>
         <a href="#" class="logo">
-            <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 4L34 32H6L20 4Z" stroke="white" stroke-width="1.5" fill="none"/>
-                <path d="M20 14L28 32H12L20 14Z" stroke="white" stroke-width="1" fill="none"/>
+            <svg class="logo-icon" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 3L37 35H5L21 3Z" stroke="url(#logoGrad)" stroke-width="1.2" fill="none"/>
+                <path d="M21 13L30 35H12L21 13Z" stroke="url(#logoGrad)" stroke-width="0.8" fill="none"/>
+                <line x1="21" y1="3" x2="21" y2="13" stroke="url(#logoGrad)" stroke-width="0.6"/>
+                <defs>
+                    <linearGradient id="logoGrad" x1="5" y1="3" x2="37" y2="35">
+                        <stop offset="0%" stop-color="#d4c9a8"/>
+                        <stop offset="50%" stop-color="#c9b896"/>
+                        <stop offset="100%" stop-color="#a89568"/>
+                    </linearGradient>
+                </defs>
             </svg>
-            <div><div class="logo-text">Altara</div><div class="logo-subtitle">Capital</div></div>
+            <div class="logo-text-group">
+                <div class="logo-text">Altara</div>
+                <div class="logo-subtitle">Capital Partners</div>
+            </div>
         </a>
         <nav>
             <a href="#about">About</a>
@@ -170,7 +402,16 @@
             <div class="section-label">Who We Are</div>
             <h2 class="section-title">A disciplined approach to industrial real estate investment.</h2>
         </div>
-        </section>
+        <div class="about-content fade-in">
+            <div class="about-text">
+                <p>Altara Capital Partners is a private investment firm focused on the acquisition and management of industrial real estate assets across key markets. We bring institutional rigor to every investment decision.</p>
+                <p>Our portfolio spans logistics, warehousing, and light manufacturing facilities, each selected for location quality, tenant creditworthiness, and long-term growth potential.</p>
+            </div>
+            <div class="about-highlight">
+                <p>We believe that disciplined underwriting, active asset management, and a long-term perspective are the foundations of superior risk-adjusted returns.</p>
+            </div>
+        </div>
+    </section>
 
     <section class="section section-light" id="approach">
         <div class="section-header fade-in">
@@ -178,17 +419,39 @@
             <h2 class="section-title">Built on fundamentals.<br>Driven by conviction.</h2>
         </div>
         <div class="approach-grid fade-in">
-            <div class="approach-card"><div class="approach-number">01</div><h3>Strategic Acquisition</h3><p>We identify and acquire high-quality industrial assets in prime locations with strong underlying fundamentals and growth potential.</p></div>
-            <div class="approach-card"><div class="approach-number">02</div><h3>Active Management</h3><p>Our hands-on approach to property management maximizes operational efficiency and enhances tenant relationships for long-term stability.</p></div>
-            <div class="approach-card"><div class="approach-number">03</div><h3>Value Creation</h3><p>Through disciplined capital deployment and strategic improvements, we unlock embedded value and generate superior risk-adjusted returns.</p></div>
+            <div class="approach-card">
+                <div class="approach-number">01</div>
+                <h3>Strategic Acquisition</h3>
+                <p>We identify and acquire high-quality industrial assets in prime locations with strong underlying fundamentals and growth potential.</p>
+            </div>
+            <div class="approach-card">
+                <div class="approach-number">02</div>
+                <h3>Active Management</h3>
+                <p>Our hands-on approach to property management maximizes operational efficiency and enhances tenant relationships for long-term stability.</p>
+            </div>
+            <div class="approach-card">
+                <div class="approach-number">03</div>
+                <h3>Value Creation</h3>
+                <p>Through disciplined capital deployment and strategic improvements, we unlock embedded value and generate superior risk-adjusted returns.</p>
+            </div>
         </div>
     </section>
 
-    
+    <section class="section section-dark">
+        <div class="two-col fade-in">
+            <div class="two-col-text">
+                <div class="section-label">Our Portfolio</div>
+                <h2>Our portfolio spans logistics, warehousing, and light manufacturing facilities across key North American markets.</h2>
+                <p>Each investment is carefully selected based on location quality, tenant creditworthiness, and long-term value creation potential.</p>
+            </div>
+            <div class="two-col-image fade-in"><div class="two-col-image-bg"></div></div>
+        </div>
+    </section>
 
     <section class="contact-section" id="contact">
         <div class="fade-in">
             <div class="section-label">Get In Touch</div>
+            <div class="section-divider"></div>
             <h2>Let's discuss your<br>investment goals.</h2>
             <p>Reach out to learn more about our investment strategy and current opportunities.</p>
             <form class="contact-form" action="https://formsubmit.co/Ethomasson@altaracp.com" method="POST">
@@ -216,11 +479,11 @@
             entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
         }, { threshold: 0.1 });
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-        
+
         function toggleMenu() {
             const nav = document.querySelector('nav');
             if (nav.style.display === 'flex') { nav.style.display = 'none'; }
-            else { nav.style.display = 'flex'; nav.style.position = 'absolute'; nav.style.top = '72px'; nav.style.left = '0'; nav.style.right = '0'; nav.style.background = '#1a1a1a'; nav.style.flexDirection = 'column'; nav.style.padding = '24px'; nav.style.gap = '20px'; }
+            else { nav.style.display = 'flex'; nav.style.position = 'absolute'; nav.style.top = '76px'; nav.style.left = '0'; nav.style.right = '0'; nav.style.background = 'var(--color-dark)'; nav.style.flexDirection = 'column'; nav.style.padding = '24px'; nav.style.gap = '20px'; nav.style.borderBottom = '1px solid rgba(201, 184, 150, 0.15)'; }
         }
     </script>
 </body>
