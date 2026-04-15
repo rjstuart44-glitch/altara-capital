@@ -60,15 +60,15 @@
 
         .logo {
             display: flex;
-            align-items: center;
+            align-items: stretch;
             gap: 14px;
             text-decoration: none;
             color: var(--color-champagne);
         }
 
-        .logo-icon { width: 42px; height: 42px; }
+        .logo-icon { width: 42px; height: 42px; align-self: stretch; }
 
-        .logo-text-group { display: flex; flex-direction: column; }
+        .logo-text-group { display: flex; flex-direction: column; justify-content: space-between; }
         .logo-text {
             font-family: var(--font-serif);
             font-size: 22px;
@@ -415,7 +415,6 @@
         <div class="about-content fade-in">
             <div class="about-text">
                 <p>Altara Capital Partners is a private investment firm focused on the acquisition and management of industrial real estate assets across key markets. We bring institutional rigor to every investment decision.</p>
-                <p>Our portfolio spans logistics, warehousing, and light manufacturing facilities, each selected for location quality, tenant creditworthiness, and long-term growth potential.</p>
             </div>
             <div class="about-highlight">
                 <p>We believe that disciplined underwriting, active asset management, and a long-term perspective are the foundations of superior risk-adjusted returns.</p>
@@ -432,29 +431,18 @@
             <div class="approach-card">
                 <div class="approach-number">01</div>
                 <h3>Strategic Acquisition</h3>
-                <p>We identify and acquire high-quality industrial assets in prime locations with strong underlying fundamentals and growth potential.</p>
+                <p>We identify and acquire high-quality industrial assets in attractive markets, anchored by strong underlying fundamentals and growth potential.</p>
             </div>
             <div class="approach-card">
                 <div class="approach-number">02</div>
-                <h3>Active Management</h3>
-                <p>Our hands-on approach to property management maximizes operational efficiency and enhances tenant relationships for long-term stability.</p>
+                <h3>Contracted Cash Flow Optimization</h3>
+                <p>We focus on generating predictable, growing income through NNN lease structures with built in rent escalations and strong tenant credit.</p>
             </div>
             <div class="approach-card">
                 <div class="approach-number">03</div>
                 <h3>Value Creation</h3>
                 <p>Through disciplined capital deployment and strategic improvements, we unlock embedded value and generate superior risk-adjusted returns.</p>
             </div>
-        </div>
-    </section>
-
-    <section class="section section-dark">
-        <div class="two-col fade-in">
-            <div class="two-col-text">
-                <div class="section-label">Our Portfolio</div>
-                <h2>Our portfolio spans logistics, warehousing, and light manufacturing facilities across key North American markets.</h2>
-                <p>Each investment is carefully selected based on location quality, tenant creditworthiness, and long-term value creation potential.</p>
-            </div>
-            <div class="two-col-image fade-in"><div class="two-col-image-bg"></div></div>
         </div>
     </section>
 
@@ -478,7 +466,7 @@
     </section>
 
     <footer>
-        <div class="footer-text">&copy; 2026 Altara Capital Partners. All rights reserved.</div>
+        <div class="footer-text">&copy; 2026 Altara Capital Partners, LLC. All rights reserved.</div>
         <div class="footer-links">
             <a href="#about">About</a><a href="#approach">Approach</a><a href="#contact">Contact</a>
         </div>
